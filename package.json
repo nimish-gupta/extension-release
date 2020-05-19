@@ -18,6 +18,15 @@
 		"start": "node src/index.js",
 		"cli": "node ./bin/index.js"
 	},
+	"keywords": [
+		"release",
+		"github",
+		"chrome",
+		"mozilla",
+		"git",
+		"extension",
+		"addon"
+	],
 	"dependencies": {
 		"command-exists": "^1.2.9",
 		"meow": "^7.0.1",
