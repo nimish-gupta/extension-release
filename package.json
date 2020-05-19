@@ -23,6 +23,6 @@
 		"meow": "^7.0.1",
 		"ramda": "^0.27.0",
 		"ramda-fantasy": "^0.8.0",
-		"release-github": "^1.1.1"
+		"release-github": "^1.1.2"
 	}
 }
