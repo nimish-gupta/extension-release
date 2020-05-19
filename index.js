@@ -1,10 +1,11 @@
 const commandExists = require('command-exists');
 const R = require('ramda');
 const { Future } = require('ramda-fantasy');
-const parseArgs = require('minimist');
 const fs = require('fs');
 const path = require('path');
 const release = require('release-github');
+
+const { isNone } = require('./util');
 
 const manifestExists = (args) =>
 	new Future((reject, resolve) => {
@@ -45,21 +46,11 @@ const checkGitExists = (args) =>
 			.catch(() => reject('git command not found'))
 	);
 
-const getArgs = (args) =>
-	parseArgs(args, {
-		alias: {
-			path: ['p'],
-		},
-		default: {
-			path: 'manifest.json',
-		},
-	});
-
 const createGitRelease = (args) =>
 	new Future((reject, resolve) =>
 		release({
-			repo: 'extension-release',
-			owner: 'nimish-gupta',
+			repo: args.repo,
+			owner: args.owner,
 			releaseVersion: args.releaseVersion,
 			open: true,
 		})
@@ -67,12 +58,21 @@ const createGitRelease = (args) =>
 			.catch(reject)
 	);
 
+const requiredArgs = (keys) => (args) =>
+	new Future((reject, resolve) => {
+		const notPresent = keys.filter((key) => isNone(args[key]));
+		if (notPresent.length === 0) {
+			resolve(args);
+		} else {
+			reject(`Following fields are required: ${notPresent.join(', ')}`);
+		}
+	});
 const main = R.compose(
 	R.chain(createGitRelease),
 	R.chain(getExtensionVersion),
 	R.chain(manifestExists),
-	R.map(getArgs),
-	checkGitExists
+	R.chain(checkGitExists),
+	requiredArgs(['repo', 'owner'])
 );
 
-main(process.argv).fork(console.error, console.log);
+module.exports = main;
