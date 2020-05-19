@@ -1,6 +1,6 @@
 {
   "name": "extension-release",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package will create github release for extension\"",
   "main": "index.js",
   "repository": "https://github.com/nimish-gupta/extension-release",
