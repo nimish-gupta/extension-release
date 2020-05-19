@@ -9,7 +9,7 @@ const { isNone } = require('./util');
 
 const manifestExists = (args) =>
 	new Future((reject, resolve) => {
-		const filePath = path.join(__dirname, args.path);
+		const filePath = path.join(__dirname, '../', args.path);
 		return fs.exists(filePath, (isExist) =>
 			isExist
 				? resolve({ ...args, manifestPath: filePath })

@@ -1,20 +1,28 @@
 {
-  "name": "extension-release",
-  "version": "1.0.1",
-  "description": "This package will create github release for extension\"",
-  "main": "index.js",
-  "repository": "https://github.com/nimish-gupta/extension-release",
-  "author": "Nimish <nimishgupta18396@gmail.com>",
-  "license": "MIT",
-  "private": false,
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "command-exists": "^1.2.9",
-    "minimist": "^1.2.5",
-    "ramda": "^0.27.0",
-    "ramda-fantasy": "^0.8.0",
-    "release-github": "^1.1.1"
-  }
+	"name": "extension-release",
+	"version": "1.0.1",
+	"description": "This package will create github release for extension\"",
+	"main": "src/index.js",
+	"repository": "https://github.com/nimish-gupta/extension-release",
+	"author": "Nimish <nimishgupta18396@gmail.com>",
+	"license": "MIT",
+	"private": false,
+	"files": [
+		"src",
+		"bin"
+	],
+	"bin": {
+		"extension-release": "./bin/index.js"
+	},
+	"scripts": {
+		"start": "node src/index.js",
+		"cli": "node ./bin/index.js"
+	},
+	"dependencies": {
+		"command-exists": "^1.2.9",
+		"meow": "^7.0.1",
+		"ramda": "^0.27.0",
+		"ramda-fantasy": "^0.8.0",
+		"release-github": "^1.1.1"
+	}
 }

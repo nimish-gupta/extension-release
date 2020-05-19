@@ -1,9 +1,7 @@
 const meow = require('meow');
 
-const main = require('../index');
-
-const isNone = (val) => val === null || val === undefined;
-const isNotNone = (val) => !isNone(val);
+const main = require('../src/');
+const { isNotNone } = require('../src/util');
 
 const cli = meow(
 	`
