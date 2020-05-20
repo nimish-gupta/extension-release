@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const meow = require('meow');
 
 const main = require('../src/');
@@ -20,9 +22,13 @@ const cli = meow(
 			},
 			repo: {
 				type: 'string',
+				alias: 'r',
+				isRequired: true,
 			},
 			owner: {
 				type: 'string',
+				alias: 'o',
+				isRequired: true,
 			},
 		},
 	}

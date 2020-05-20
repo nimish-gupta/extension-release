@@ -9,7 +9,7 @@ const { isNone } = require('./util');
 
 const manifestExists = (args) =>
 	new Future((reject, resolve) => {
-		const filePath = path.join(__dirname, '../', args.path);
+		const filePath = path.join(process.cwd(), args.path);
 		return fs.exists(filePath, (isExist) =>
 			isExist
 				? resolve({ ...args, manifestPath: filePath })
@@ -72,7 +72,7 @@ const main = R.compose(
 	R.chain(getExtensionVersion),
 	R.chain(manifestExists),
 	R.chain(checkGitExists),
-	requiredArgs(['repo', 'owner'])
+	requiredArgs(['repo', 'owner', 'path'])
 );
 
 module.exports = main;

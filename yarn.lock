@@ -391,10 +391,10 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-release-github@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/release-github/-/release-github-1.1.2.tgz#9f559fe9212aab08d0fc49ad6027eec69351e597"
-  integrity sha512-lXQNui7I+jqoKUXL91MAqOPjDim9wYuYZK+2y9Wqgx2mq09AZsz3YDRKlclpfn1WrMb5T1ZG1FHIZPZSiGY1zA==
+release-github@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/release-github/-/release-github-1.1.3.tgz#2573d54808f2587073cba177f20ad9c5f3e13a8e"
+  integrity sha512-JhlOApzKwQ9YXWDtu05nDtLiaNtzU8UGDdbqrEQp9pkS1e9ZSKVgVDSKV1h+foLzDmg+97kVlEUP/qJiSiFxDw==
   dependencies:
     chalk "^4.0.0"
     command-exists "^1.2.9"
